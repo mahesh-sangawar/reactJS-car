@@ -10,7 +10,6 @@ class Table extends React.Component {
       return item.id === makeId; 
     });
     const carDetails = { name, makeId, id, price, imageUrl, make};
-    console.log(carDetails);
     browserHistory.push({
       pathname:`/${make.name}/${name}/${id}`,
       state: carDetails
@@ -18,7 +17,6 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <table className="table">
         <thead>

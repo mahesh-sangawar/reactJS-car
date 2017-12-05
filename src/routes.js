@@ -11,6 +11,7 @@ export default (
         <IndexRoute component={HomePage} />
         <Route path="search" component={SearchPage} />
         <Route path="/:make/:model/:id" component={CarDetailsPage} />
+        <Route path="/:make/:model" component={CarDetailsPage} />
         <Route path="*" component={NotFoundPage} />
     </Router>
 );

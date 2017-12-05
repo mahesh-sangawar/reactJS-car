@@ -4,7 +4,6 @@ import React from 'react';
 
 class Card extends React.Component {
   render() {
-    console.log(this.props);
     const self = this.props.data[0];
     return (
       <div className="container-fluid">

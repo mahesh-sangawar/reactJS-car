@@ -5,7 +5,6 @@ import Card from '../common/Card';
 
 class CarDetailsPage extends React.Component {
   render() {
-    console.log(this.props);
     const self = this.props.location.state;
     return ( 
       <div className="container-fluid">
