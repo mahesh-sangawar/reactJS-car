@@ -4,26 +4,11 @@ This README would normally document whatever steps are necessary to get your app
 
 Qantas tech challenge
 
-* We are going to build an app to browse a car catalog. The app should have a
+We are going to build an app to browse a car catalog. The app should have a
 primary navigation bar containing two items: Home and Search.
 
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+yarn install
+yarn start
