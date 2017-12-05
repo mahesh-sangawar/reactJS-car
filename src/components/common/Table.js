@@ -5,6 +5,11 @@ import { Link, browserHistory } from 'react-router';
 import _ from 'lodash';
 
 class Table extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+  }
+
   handleClick(name, makeId, id, price, imageUrl) {
     let make = _.find(this.props.make[0], (item) => { 
       return item.id === makeId; 
@@ -17,6 +22,12 @@ class Table extends React.Component {
   }
 
   render() {
+    let data = this.props.data[0];
+    if(!data) {
+      return (
+        <div>No data found</div>
+      );
+    } else {
     return (
       <table className="table">
         <thead>
@@ -28,7 +39,7 @@ class Table extends React.Component {
           </tr>
         </thead>
       <tbody>
-        {this.props.data[0].map(({ id, makeId, name, price, imageUrl}) =>
+        {data.map(({ id, makeId, name, price, imageUrl}) =>
         <tr key={id}>
           <td>{makeId}</td>
           <td>{name}</td>
@@ -39,6 +50,7 @@ class Table extends React.Component {
       </tbody>
       </table>
     );
+  }
   }
 }
 
