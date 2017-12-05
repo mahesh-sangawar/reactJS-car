@@ -5,8 +5,20 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import {loadModels} from './actions/modelsAction';
+import {loadCarofWeek} from './actions/carOfWeekAction';
+import {loadMake} from './actions/makeAction';
+
+const store = configureStore();
+store.dispatch(loadModels());
+store.dispatch(loadCarofWeek());
+store.dispatch(loadMake());
 
 render(
-    <Router history={browserHistory} routes={routes}/>,
+    <Provider store={store}>
+      <Router history={browserHistory} routes={routes}/>
+    </Provider>,
     document.getElementById("app")
 );

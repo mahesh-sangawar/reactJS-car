@@ -5,9 +5,10 @@ import config from '../webpack.config';
 import open from 'open';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import * as requestHandler  from './requestHandler';
 
 /* eslint-disable no-console */
-const port = 3000;
+const port = (process.env.PORT || 3000);
 const app = express();
 const compiler = webpack(config);
 
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/build')));
 app.get('/api/models', (req,res) => res.sendFile(path.normalize(__dirname + '/data/models.json')));
 app.get('/api/makes', (req,res) => res.sendFile(path.normalize(__dirname + '/data/makes.json')));
-app.get('/api/caroftheweek', (req,res) => res.sendFile(path.normalize(__dirname + '/data/carOftheWeek.json')));
+app.get('/api/caroftheweek', (req,res) => res.send(requestHandler.getCarOftheWeek()));
 
 // return 404 when api route not found
 app.use('/api/*', (req, res) => res.status(404).send());

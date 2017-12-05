@@ -1,15 +1,19 @@
+'use strict';
+
 import React from 'react';
 
 class Card extends React.Component {
   render() {
+    console.log(this.props);
+    const self = this.props.data[0];
     return (
       <div className="container-fluid">
         <div className="thumbnail">
-          <img src={this.props.data.imageUrl}></img>
+          <img src={self.imageUrl} />
           <div className="caption text-center">
             <h3>Car of the Week</h3>
-            <h2>{this.props.data.make} - {this.props.data.name}</h2>
-            <p>{this.props.data.review}</p>
+            <h2>{self.make} - {self.name}</h2>
+            <p>{self.review}</p>
           </div>
         </div>
       </div>
